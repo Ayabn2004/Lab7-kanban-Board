@@ -1,4 +1,4 @@
-import React from "react";              // ➜ obligatoire pour Jest
+import React from "react";             
 import { render, screen } from "@testing-library/react";
 import Column from "../components/Column";
 
