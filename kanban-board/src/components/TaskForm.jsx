@@ -4,32 +4,27 @@ export default function TaskForm({ onAdd }) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
-  const handleSubmit = e => {
+  const submit = (e) => {
     e.preventDefault();
     if (!title.trim()) return;
-
-    onAdd(title, description);
+    onAdd(title.trim(), description.trim());
     setTitle("");
     setDescription("");
   };
 
   return (
-    <form onSubmit={handleSubmit} className="task-form">
-      <input 
-        type="text" 
+    <form className="task-form" onSubmit={submit}>
+      <input
         placeholder="Task title..."
         value={title}
         onChange={e => setTitle(e.target.value)}
       />
-      
-      <input 
-        type="text" 
+      <input
         placeholder="Description..."
         value={description}
         onChange={e => setDescription(e.target.value)}
       />
-
-      <button type="submit">Add</button>
+      <button className="primary">Add</button>
     </form>
   );
 }
